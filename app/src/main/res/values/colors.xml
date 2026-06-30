@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="calc_body">#252B33</color>
+    <color name="lcd_bg">#C1CCB2</color>
+    <color name="lcd_text">#141814</color>
+
+    <color name="button_sci">#343C48</color>
+    <color name="button_sci_text">#F5F7FA</color>
+    <color name="button_num">#EEF2F6</color>
+    <color name="button_num_text">#151922</color>
+
+    <color name="button_op">#F0C45B</color>
+    <color name="button_op_text">#1F1A10</color>
+    <color name="button_del_ac">#D95F59</color>
+    <color name="button_nav">#46515F</color>
+
+    <color name="shift_gold">#FFD85A</color>
+    <color name="alpha_red">#FF7A73</color>
+</resources>

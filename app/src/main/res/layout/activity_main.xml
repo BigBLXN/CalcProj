@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/calc_body"
+    android:padding="14dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <!-- Premium LCD Display Area -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.05"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#1A1A1A"
+            android:padding="6dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/lcd_bg"
+                android:padding="14dp">
+                <TextView
+                    android:id="@+id/tvWatermark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:text="MTH/2023/027"
+                    android:textColor="#1D251C"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans"
+                    android:alpha="0.78" />
+
+                <TextView
+                    android:id="@+id/tvMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:text="DEG"
+                    android:textColor="#2A2A2A"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace" />
+
+                <EditText
+                    android:id="@+id/tvDisplay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="end"
+                    android:text="0"
+                    android:textColor="@color/lcd_text"
+                    android:textSize="38sp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:textIsSelectable="true"
+                    android:inputType="none"
+                    android:fontFamily="monospace"
+                    android:textCursorDrawable="@null"
+                    android:letterSpacing="0" />
+
+                <TextView
+                    android:id="@+id/tvPreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/tvDisplay"
+                    android:gravity="end"
+                    android:text=""
+                    android:textColor="#555555"
+                    android:textSize="18sp"
+                    android:fontFamily="monospace"
+                    android:alpha="0.7" />
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Navigation Area -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:layout_marginBottom="4dp">
+
+        <Button
+            android:id="@+id/btnShift"
+            style="@style/CalcButtonShift"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            android:text="SHIFT"
+            app:layout_constraintEnd_toStartOf="@+id/btnAlpha"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnAlpha"
+            style="@style/CalcButtonAlpha"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="ALPHA"
+            app:layout_constraintEnd_toStartOf="@+id/dPad"
+            app:layout_constraintStart_toEndOf="@+id/btnShift"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Aesthetic D-Pad -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dPad"
+            android:layout_width="108dp"
+            android:layout_height="88dp"
+            android:background="@drawable/dpad_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/btnUp"
+                style="@style/CalcButtonNav"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:text="▲"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnDown"
+                style="@style/CalcButtonNav"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:text="▼"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/btnLeft"
+                style="@style/CalcButtonNav"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:text="◀"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnRight"
+                style="@style/CalcButtonNav"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:text="▶"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnMode"
+            style="@style/CalcButtonSci"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="DRG"
+            android:textSize="8sp"
+            app:layout_constraintEnd_toStartOf="@+id/btnOn"
+            app:layout_constraintStart_toEndOf="@+id/dPad"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnOn"
+            style="@style/CalcButtonSci"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:text="ON"
+            android:textSize="8sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnMode"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Scientific Grid -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:columnCount="6"
+        android:rowCount="6">
+
+        <!-- Row 1 labels -->
+        <TextView android:text="nPr" android:textColor="@color/shift_gold" android:textSize="9sp" android:layout_gravity="center_horizontal|bottom" />
+        <TextView android:text="ⁿ√" android:textColor="@color/shift_gold" android:textSize="9sp" android:layout_gravity="center_horizontal|bottom" />
+        <TextView android:text="" />
+        <TextView android:text="" />
+        <TextView android:text="10ˣ" android:textColor="@color/shift_gold" android:textSize="9sp" android:layout_gravity="center_horizontal|bottom" />
+        <TextView android:text="eˣ" android:textColor="@color/shift_gold" android:textSize="9sp" android:layout_gravity="center_horizontal|bottom" />
+
+        <!-- Row 1 buttons -->
+        <Button android:id="@+id/btnFraction" style="@style/CalcButtonSci" android:text="nCr" />
+        <Button android:id="@+id/btnSqrt" style="@style/CalcButtonSci" android:text="√" />
+        <Button android:id="@+id/btnSquare" style="@style/CalcButtonSci" android:text="x²" />
+        <Button android:id="@+id/btnXY" style="@style/CalcButtonSci" android:text="^" />
+        <Button android:id="@+id/btnLog" style="@style/CalcButtonSci" android:text="log" />
+        <Button android:id="@+id/btnLn" style="@style/CalcButtonSci" android:text="ln" />
+
+        <!-- Row 2 labels -->
+        <TextView android:text="" />
+        <TextView android:text="" />
+        <TextView android:text="" />
+        <TextView android:text="asin" android:textColor="@color/shift_gold" android:textSize="9sp" android:layout_gravity="center_horizontal|bottom" />
+        <TextView android:text="acos" android:textColor="@color/shift_gold" android:textSize="9sp" android:layout_gravity="center_horizontal|bottom" />
+        <TextView android:text="atan" android:textColor="@color/shift_gold" android:textSize="9sp" android:layout_gravity="center_horizontal|bottom" />
+
+        <!-- Row 2 buttons -->
+        <Button android:id="@+id/btnPlusMinus" style="@style/CalcButtonSci" android:text="(-)" />
+        <Button android:id="@+id/btnDegree" style="@style/CalcButtonSci" android:text="° ' \u0022" />
+        <Button android:id="@+id/btnHyp" style="@style/CalcButtonSci" android:text="hyp" />
+        <Button android:id="@+id/btnSin" style="@style/CalcButtonSci" android:text="sin" />
+        <Button android:id="@+id/btnCos" style="@style/CalcButtonSci" android:text="cos" />
+        <Button android:id="@+id/btnTan" style="@style/CalcButtonSci" android:text="tan" />
+
+        <!-- Row 3 labels -->
+        <TextView android:text="" />
+        <TextView android:text="" />
+        <TextView android:text="" />
+        <TextView android:text="" />
+        <TextView android:layout_columnSpan="2" />
+
+        <!-- Row 3 buttons -->
+        <Button android:id="@+id/btnRcl" style="@style/CalcButtonSci" android:text="RCL" />
+        <Button android:id="@+id/btnEng" style="@style/CalcButtonSci" android:text="ENG" />
+        <Button android:id="@+id/btnOpenBracket" style="@style/CalcButtonSci" android:text="(" />
+        <Button android:id="@+id/btnCloseBracket" style="@style/CalcButtonSci" android:text=")" />
+        <Button android:id="@+id/btnMPlus" style="@style/CalcButtonSci" android:layout_columnSpan="2" android:text="M+" />
+
+    </GridLayout>
+
+    <!-- Keypad Grid -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.2"
+        android:columnCount="5"
+        android:rowCount="8"
+        android:layout_marginTop="6dp">
+
+        <!-- Num labels -->
+        <TextView android:layout_columnSpan="5" android:height="8dp"/> <!-- Spacer -->
+
+        <!-- Row 1 buttons -->
+        <Button android:id="@+id/btn7" style="@style/CalcButtonNum" android:text="7" />
+        <Button android:id="@+id/btn8" style="@style/CalcButtonNum" android:text="8" />
+        <Button android:id="@+id/btn9" style="@style/CalcButtonNum" android:text="9" />
+        <Button android:id="@+id/btnDelete" style="@style/CalcButtonDelAC" android:text="DEL" />
+        <Button android:id="@+id/btnAC" style="@style/CalcButtonDelAC" android:text="AC" />
+
+        <!-- Spacer -->
+        <TextView android:layout_columnSpan="5" android:height="8dp"/>
+
+        <!-- Row 2 buttons -->
+        <Button android:id="@+id/btn4" style="@style/CalcButtonNum" android:text="4" />
+        <Button android:id="@+id/btn5" style="@style/CalcButtonNum" android:text="5" />
+        <Button android:id="@+id/btn6" style="@style/CalcButtonNum" android:text="6" />
+        <Button android:id="@+id/btnMultiply" style="@style/CalcButtonOp" android:text="×" />
+        <Button android:id="@+id/btnDivide" style="@style/CalcButtonOp" android:text="÷" />
+
+        <!-- Spacer -->
+        <TextView android:layout_columnSpan="5" android:height="8dp"/>
+
+        <!-- Row 3 buttons -->
+        <Button android:id="@+id/btn1" style="@style/CalcButtonNum" android:text="1" />
+        <Button android:id="@+id/btn2" style="@style/CalcButtonNum" android:text="2" />
+        <Button android:id="@+id/btn3" style="@style/CalcButtonNum" android:text="3" />
+        <Button android:id="@+id/btnPlus" style="@style/CalcButtonOp" android:text="+" />
+        <Button android:id="@+id/btnMinus" style="@style/CalcButtonOp" android:text="-" />
+
+        <!-- Row 4 labels -->
+        <TextView android:text="" />
+        <TextView android:text="" />
+        <TextView android:text="π" android:textColor="@color/shift_gold" android:textSize="9sp" android:layout_gravity="center_horizontal|bottom" />
+        <TextView android:text="" />
+        <TextView android:text="%" android:textColor="@color/shift_gold" android:textSize="9sp" android:layout_gravity="center_horizontal|bottom" />
+
+        <!-- Row 4 buttons -->
+        <Button android:id="@+id/btn0" style="@style/CalcButtonNum" android:text="0" />
+        <Button android:id="@+id/btnDot" style="@style/CalcButtonNum" android:text="." />
+        <Button android:id="@+id/btnExp" style="@style/CalcButtonNum" android:text="×10ˣ" />
+        <Button android:id="@+id/btnAns" style="@style/CalcButtonNum" android:text="Ans" />
+        <Button android:id="@+id/btnEquals" style="@style/CalcButtonOp" android:text="=" />
+
+    </GridLayout>
+
+</LinearLayout>
